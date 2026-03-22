@@ -6,8 +6,24 @@
     <title>Weather App</title>
   </head>
   <body>
-    <nav></nav>
-    <header></header>
+    <header>
+      <div class="logo-area">
+        <img src="./assets/weather-app.svg" id="logo" alt="Odin Weather Logo">
+        <h1>Odin Weather</h1>
+      </div>
+      <div class="header-center">
+        <div class="search-bar">
+          <input type="text" id="search" name="search" placeholder="Enter a City..." />
+        </div>
+        <div class="unit-toggle">
+          <input type="radio" id="celsius" name="unit" value="metric" checked>
+          <label for="celsius">°C</label>
+          <input type="radio" id="fahrenheit" name="unit" value="us">
+          <label for="fahrenheit">°F</label>
+          <div class="toggle-glider"></div>
+        </div>
+      </div>
+    </header>
     <main>
     </main>
     <footer>
