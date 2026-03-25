@@ -25,10 +25,70 @@
       </div>
     </header>
     <main>
-      <div id="weather"></div>
-      <div id="humidity"></div>
-      <div id="wind"></div>
-      <div id="rain"></div>
+      <div id="weather">
+        <div class="top-row">
+          <div class="top-row-left-we">
+            <div class="curr-weather"></div>
+          </div>
+          <div class="top-row-right">
+            <div class="location">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0EA5E9"><path d="M536.5-503.5Q560-527 560-560t-23.5-56.5Q513-640 480-640t-56.5 23.5Q400-593 400-560t23.5 56.5Q447-480 480-480t56.5-23.5ZM480-186q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"/></svg>
+              <div class="location-name"></div>
+            </div>
+            <div class="date"></div>
+          </div>
+        </div>
+      </div>
+      <div id="humidity">
+        <div class="top-row">
+          <div class="top-row-left-h">
+            <svg xmlns="http://www.w3.org/2000/svg" height="35px" viewBox="0 -960 960 960" width="35px" fill="#0EA5E9""><path d="M478-467Zm222-333q70 62 105 114.5t35 97.5q0 60-40 104t-100 44q-60 0-100-44t-40-104q0-42 37-98t103-114Zm0 111q-27 29-43.5 56.5T640-588q0 27 17 47.5t43 20.5q26 0 43-20.5t17-47.5q0-17-16.5-44.5T700-689ZM480-80q-137 0-228.5-94T160-408q0-100 79.5-217.5T480-880q54 46 99 90t81 86q-7 9-25 34t-23 33q-27-32-59.5-66.5T480-774Q361-665 300.5-573T240-408q0 107 68 177.5T480-160q52 0 96-19t76-52q32-33 50-78.5t18-98.5q0-17-3.5-36T706-483q9-5 35.5-19t35.5-19q11 29 17 57.5t6 55.5q0 140-91.5 234T480-80Zm11-120q12-1 20.5-9.5T520-230q0-14-9-22.5t-23-7.5q-41 3-87-22.5T343-375q-2-11-10.5-18t-19.5-7q-14 0-23 10.5t-6 24.5q17 91 80 130t127 35Zm209-405Z"/></svg>
+          </div>
+          <div class="hum-text">HUMIDITY</div>
+        </div>
+        <div class="middle-row">
+          <div class="value humidity"></div>
+          <div class="middle-row-text">%</div>
+        </div>
+        <div class="bottom-row">
+          <div class="humidity-bar"></div>
+          <div class="bottom-row-text"></div>
+        </div>
+      </div>
+      <div id="wind">
+        <div class="top-row">
+          <div class="top-row-left-w">
+            <svg xmlns="http://www.w3.org/2000/svg" height="35px" viewBox="0 -960 960 960" width="35px" fill="#F59E0B"><path d="M460-160q-50 0-85-35t-35-85h80q0 17 11.5 28.5T460-240q17 0 28.5-11.5T500-280q0-17-11.5-28.5T460-320H80v-80h380q50 0 85 35t35 85q0 50-35 85t-85 35ZM80-560v-80h540q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43h-80q0-59 40.5-99.5T620-840q59 0 99.5 40.5T760-700q0 59-40.5 99.5T620-560H80Zm660 320v-80q26 0 43-17t17-43q0-26-17-43t-43-17H80v-80h660q59 0 99.5 40.5T880-380q0 59-40.5 99.5T740-240Z"/></svg>
+          </div>
+          <div class="wind-text">WIND</div>
+        </div>
+        <div class="middle-row">
+          <div class="value wind"></div>
+          <div class="middle-ro-text">km/h</div>
+        </div>
+        <div class="bottom-row">
+          <div class="wind-direction">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#F59E0B"><path d="m300-300 280-80 80-280-280 80-80 280Zm180-120q-25 0-42.5-17.5T420-480q0-25 17.5-42.5T480-540q25 0 42.5 17.5T540-480q0 25-17.5 42.5T480-420Zm0 340q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q133 0 226.5-93.5T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 133 93.5 226.5T480-160Zm0-320Z"/></svg> 
+            <div class="wind-direction-text"></div>
+          </div>
+          <div class="bottom-row-text"></div>
+        </div>
+      </div>
+      <div id="rain">
+        <div class="top-row">
+          <div class="top-row-left-r">
+            <svg xmlns="http://www.w3.org/2000/svg" height="35px" viewBox="0 -960 960 960" width="35px" fill="#6366F1"><path d="M457.5-86.5Q447-93 442-107L240-717l140 34 60-46v-95q0-40 29-68t71-28q42 0 71 28t29 68v24h-80v-24q0-8-6-13.5t-14-5.5q-8 0-14 5.5t-6 13.5v95l60 46 140-34-202 609q-5 14-15.5 21T480-80q-12 0-22.5-6.5ZM520-368l78-238-36 9-42-31v260Zm-80 0v-260l-42 32-37-10 79 238Z"/></svg>
+          </div>
+          <div class="rain-text">RAIN CHANCE</div>
+        </div>
+        <div class="middle-row">
+          <div class="value wind"></div>
+          <div class="middle-row-text">%</div>
+        </div>
+        <div class="bottom-row">
+          <div class="bottom-row-text"></div>
+        </div>
+      </div>
     </main>
     <footer>
       <div class="footer">Made by OdinM13</div>

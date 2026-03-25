@@ -119,9 +119,10 @@ main {
 #rain,
 #wind,
 #humidity {
-  border-radius: 50px;
+  border-radius: 40px;
   border-color: var(--glass-border);
   background-color: var(--glass-bg);
+  padding: 35px;
 }
 
 #weather {
@@ -190,3 +191,32 @@ footer {
 #fahrenheit:checked ~ .toggle-glider {
   transform: translateX(100%);
 }
+
+.top-row {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.top-row-left-h,
+.top-row-left-w,
+.top-row-left-r {
+  border-radius: 20px;
+  padding: 15px;
+}
+
+.top-row-left-h {
+  background-color: rgba(14, 165, 233, 0.1);
+}
+
+.top-row-left-w {
+  background-color: rgba(245, 158, 11, 0.1);
+}
+
+.top-row-left-r {
+  background-color: rgba(99, 102, 241, 0.1);
+}
+
