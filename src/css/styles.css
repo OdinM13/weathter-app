@@ -222,5 +222,9 @@ footer {
 
 .value {
   font-weight: 800;
-  font-size: 2rem;
+  font-size: 3rem;
+}
+
+.middle-row-text {
+  font-size: 1.5rem;
 }

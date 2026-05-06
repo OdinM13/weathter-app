@@ -1,6 +1,6 @@
 export { filterRawData };
 
-function filterRawData(rawData) {
+function filterRawData(rawData, unit) {
   const location = rawData.resolvedAddress;
   const temp = rawData.currentConditions.temp;
   const trend = rawData.description;
@@ -15,7 +15,15 @@ function filterRawData(rawData) {
   const precipType = rawData.currentConditions.preciptype;
   const windDir = rawData.currentConditions.winddir;
   const windSpeed = rawData.currentConditions.windspeed;
+  const windDesc = getWindDescription(windSpeed, unit);
   const icon = rawData.currentConditions.icon;
+
+  let unitSymbol = '';
+  if (unit === 'metric') {
+    unitSymbol = '°C';
+  } else {
+    unitSymbol = '°F';
+  }
 
   return {
     location: location,
@@ -25,13 +33,36 @@ function filterRawData(rawData) {
     maxtemp: tempMax,
     date: locationDate,
     cond: condition,
-    dew: dew,
+    dewText: `The dew point is ${dew}${unitSymbol} right now.`,
     humidity: humidity,
     precip: precip,
     precipprob: precipProb,
     preciptype: precipType,
     winddir: windDir,
     windspeed: windSpeed,
+    windText: `${windDesc} expected all day.`,
     icon: icon
+  }
+}
+
+function getWindDescription(speed, unit) {
+  if (unit === 'metric') {
+    if (speed < 1) return 'Calm';
+    if (speed < 6) return 'Light air';
+    if (speed < 12) return 'Light breeze';
+    if (speed < 20) return 'Gentle breeze';
+    if (speed < 29) return 'Moderate breeze';
+    if (speed < 39) return 'Fresh breeze';
+    return 'Strong wind';
+  } else {
+    // Imperial / US (mph)
+    if (speed < 1) return 'Calm';
+    if (speed < 4) return 'Light air';
+    if (speed < 8) return 'Light breeze';
+    if (speed < 13) return 'Gentle breeze';
+    if (speed < 19) return 'Moderate breeze';
+    if (speed < 25) return 'Fresh breeze';
+    if (speed < 32) return 'Strong breeze';
+    return 'Near Gale';
   }
 }

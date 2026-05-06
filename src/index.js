@@ -6,7 +6,7 @@ import { renderWeatherData } from './ui.js';
 
 
 const rawWeatherData = await getWeatherData('cologne', 'metric');
-const filteredData = filterRawData(rawWeatherData);
+const filteredData = filterRawData(rawWeatherData, 'metric');
 renderWeatherData(filteredData);
 
 console.table(filteredData);
