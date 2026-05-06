@@ -220,3 +220,7 @@ footer {
   background-color: rgba(99, 102, 241, 0.1);
 }
 
+.value {
+  font-weight: 800;
+  font-size: 2rem;
+}
