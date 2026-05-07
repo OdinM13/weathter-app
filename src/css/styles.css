@@ -116,8 +116,8 @@ main {
 }
 
 #weather,
-#rain,
-#wind,
+#rain-chance,
+#wind-data,
 #humidity {
   border-radius: 40px;
   border-color: var(--glass-border);
@@ -129,16 +129,20 @@ main {
   grid-area: weather;
 }
 
-#rain {
+#rain-chance {
   grid-area: rain;
 }
 
-#wind {
+#wind-data {
   grid-area: wind;
 }
 
 #humidity {
   grid-area: humidity;
+}
+
+.weather-icon {
+  display: none;
 }
 
 footer {

@@ -10,23 +10,31 @@ function renderWeatherData(filteredData) {
   const textHumidity = document.querySelector(".bottom-row-text.humidity");
   const textRain = document.querySelector(".bottom-row-text.rain");
   const textWind = document.querySelector(".bottom-row-text.wind");
+  const textTemp = document.querySelector(".middle-row-sub-text");
+
+  const textLocation = document.querySelector(".location-name");
+  const date = document.querySelector(".date");
+
+  const activeIcon = document.getElementById(filteredData.icon);
+  if (activeIcon) {
+    activeIcon.style.display = 'block';
+  }
   
-  renderMainValue(valueHumidity, filteredData.humidity);
-  renderMainValue(valueRain, filteredData.precipprob);
-  renderMainValue(valueWind, filteredData.windspeed);
-  renderMainValue(valueTemp, filteredData.temp);
+  renderContent(valueHumidity, filteredData.humidity);
+  renderContent(valueRain, filteredData.precipprob);
+  renderContent(valueWind, filteredData.windspeed);
+  renderContent(valueTemp, filteredData.temp);
 
-  renderBottomText(textHumidity, filteredData.dewText);
-  renderBottomText(textRain, filteredData.trend);
-  renderBottomText(textWind, filteredData.windText);
+  renderContent(textHumidity, filteredData.dewText);
+  renderContent(textRain, filteredData.trend);
+  renderContent(textWind, filteredData.windText);
+  renderContent(textTemp, filteredData.cond);
+
+  renderContent(textLocation, filteredData.location);
+  renderContent(date, filteredData.date);
 }
 
-function renderMainValue(selector, value) {
-  const content = document.createTextNode(value);
-  selector.appendChild(content);
-}
-
-function renderBottomText(selector, value) {
+function renderContent(selector, value) {
   const content = document.createTextNode(value);
   selector.appendChild(content);
 }

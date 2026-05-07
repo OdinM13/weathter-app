@@ -6,7 +6,7 @@ function filterRawData(rawData, unit) {
   const trend = rawData.description;
   const tempMin = rawData.days[0].tempmin;
   const tempMax = rawData.days[0].tempmax;
-  const locationDate = rawData.days[0].datetime;
+  const locationDate = formatDate(rawData.days[0].datetime);
   const condition = rawData.currentConditions.conditions;
   const dew = rawData.currentConditions.dew;
   const humidity = rawData.currentConditions.humidity;
@@ -65,4 +65,17 @@ function getWindDescription(speed, unit) {
     if (speed < 32) return 'Strong breeze';
     return 'Near Gale';
   }
+}
+
+function formatDate(date) {
+  const numbers = date.split("-");
+  const newDate = new Date(Date.UTC(numbers[0], numbers[1] - 1, numbers[2]));
+  let options = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "UTC"
+  };
+  return new Intl.DateTimeFormat("en-US", options).format(newDate);
 }
