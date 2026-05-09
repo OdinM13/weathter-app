@@ -7,13 +7,14 @@ function filterRawData(rawData, unit) {
   const tempMin = rawData.days[0].tempmin;
   const tempMax = rawData.days[0].tempmax;
   const locationDate = formatDate(rawData.days[0].datetime);
-  const condition = rawData.currentConditions.conditions;
+  const conditionNow = rawData.currentConditions.conditions;
+  const conditionToday = rawData.days[0].description;
   const dew = rawData.currentConditions.dew;
   const humidity = rawData.currentConditions.humidity;
   const precip = rawData.currentConditions.precip;
   const precipProb = rawData.currentConditions.precipprob;
   const precipType = rawData.currentConditions.preciptype;
-  const windDir = rawData.currentConditions.winddir;
+  const windDir = getWindDirection(rawData.currentConditions.winddir);
   const windSpeed = rawData.currentConditions.windspeed;
   const windDesc = getWindDescription(windSpeed, unit);
   const icon = rawData.currentConditions.icon;
@@ -32,7 +33,8 @@ function filterRawData(rawData, unit) {
     mintemp: tempMin,
     maxtemp: tempMax,
     date: locationDate,
-    cond: condition,
+    condNow: conditionNow,
+    condToday: conditionToday,
     dewText: `The dew point is ${dew}${unitSymbol} right now.`,
     humidity: humidity,
     precip: precip,
@@ -78,4 +80,20 @@ function formatDate(date) {
     timeZone: "UTC"
   };
   return new Intl.DateTimeFormat("en-US", options).format(newDate);
+}
+
+function getWindDirection(degrees) {
+  const sectors = [
+    "North", "North-northeast", "Northeast", "East-northeast",
+    "East", "East-southeast", "Southeast", "South-southeast",
+    "South", "South-southwest", "Southwest", "West-southwest",
+    "West", "West-northwest", "Northwest", "North-northwest"
+  ];
+
+  // normalized 
+  const normalized = (degrees % 360 + 360) % 360;
+
+  const index = Math.round(normalized / 22.5) % 16;
+
+  return sectors[index];
 }

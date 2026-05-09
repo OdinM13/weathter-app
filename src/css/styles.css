@@ -205,9 +205,17 @@ footer {
   font-weight: 800;
 }
 
+.top-row-right .location,
+.top-row-right .date {
+  color: var(--text-main);
+  font-size: var(--size-body);
+  font-weight: normal;
+}
+
 .top-row-left-h,
 .top-row-left-w,
-.top-row-left-r {
+.top-row-left-r,
+.condition-tag {
   border-radius: 20px;
   padding: 15px;
 }
@@ -216,8 +224,10 @@ footer {
   background-color: rgba(14, 165, 233, 0.1);
 }
 
-.top-row-left-w {
+.top-row-left-w,
+.condition-tag {
   background-color: rgba(245, 158, 11, 0.1);
+  color: rgba(245, 158, 11, 1);
 }
 
 .top-row-left-r {

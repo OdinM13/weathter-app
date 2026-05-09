@@ -14,7 +14,6 @@ async function getWeatherData(location, unit) {
     }
 
     const weatherData = await response.json();
-    console.table(weatherData);
     return weatherData;
   } catch (error) {
     // If I want to do something with the catched error, I have to return it

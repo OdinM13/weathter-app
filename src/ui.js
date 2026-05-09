@@ -9,11 +9,16 @@ function renderWeatherData(filteredData) {
 
   const textHumidity = document.querySelector(".bottom-row-text.humidity");
   const textRain = document.querySelector(".bottom-row-text.rain");
+  const textWindDir = document.querySelector(".wind-direction-text");
   const textWind = document.querySelector(".bottom-row-text.wind");
   const textTemp = document.querySelector(".middle-row-sub-text");
 
   const textLocation = document.querySelector(".location-name");
   const date = document.querySelector(".date");
+
+  const tagCondition = document.querySelector(".condition-tag");
+  const valueTempHigh = document.querySelector(".high-value");
+  const valueTempLow = document.querySelector(".low-value");
 
   const activeIcon = document.getElementById(filteredData.icon);
   if (activeIcon) {
@@ -27,11 +32,16 @@ function renderWeatherData(filteredData) {
 
   renderContent(textHumidity, filteredData.dewText);
   renderContent(textRain, filteredData.trend);
+  renderContent(textWindDir, filteredData.winddir);
   renderContent(textWind, filteredData.windText);
-  renderContent(textTemp, filteredData.cond);
+  renderContent(textTemp, filteredData.condToday);
 
   renderContent(textLocation, filteredData.location);
   renderContent(date, filteredData.date);
+
+  renderContent(tagCondition, filteredData.condNow);
+  renderContent(valueTempHigh, filteredData.maxtemp);
+  renderContent(valueTempLow, filteredData.mintemp);
 }
 
 function renderContent(selector, value) {
