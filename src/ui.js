@@ -42,9 +42,25 @@ function renderWeatherData(filteredData) {
   renderContent(tagCondition, filteredData.condNow);
   renderContent(valueTempHigh, filteredData.maxtemp);
   renderContent(valueTempLow, filteredData.mintemp);
+
 }
 
 function renderContent(selector, value) {
+  selector.innerHTML = '';
   const content = document.createTextNode(value);
   selector.appendChild(content);
 }
+
+const searchBar = document.querySelector("#search");
+searchBar.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    const changeLocation = new CustomEvent('changeLocation', {
+      detail : {
+        location: searchBar.value
+      }
+    }) 
+    searchBar.value = '';
+    document.dispatchEvent(changeLocation);
+  }
+})
+
