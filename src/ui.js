@@ -23,7 +23,7 @@ function renderWeatherData(filteredData) {
   const activeIcon = document.getElementById(filteredData.icon);
   if (activeIcon) {
     activeIcon.style.display = 'block';
-  }
+  } 
   
   renderContent(valueHumidity, filteredData.humidity);
   renderContent(valueRain, filteredData.precipprob);
@@ -51,16 +51,29 @@ function renderContent(selector, value) {
   selector.appendChild(content);
 }
 
+const unitToggle = document.querySelector('.unit-toggle');
 const searchBar = document.querySelector("#search");
 searchBar.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') {
     const changeLocation = new CustomEvent('changeLocation', {
-      detail : {
-        location: searchBar.value
+      detail: {
+        location: searchBar.value,
+        unit: unitToggle.querySelector('input:checked').value 
       }
     }) 
     searchBar.value = '';
     document.dispatchEvent(changeLocation);
   }
+})
+
+unitToggle.addEventListener('click', (e) => {
+  const textLocation = document.querySelector(".location-name");
+  const changeUnit = new CustomEvent('changeUnit', {
+    detail: {
+      location: textLocation.textContent, 
+      unit: unitToggle.querySelector('input:checked').value
+    }
+  })
+  document.dispatchEvent(changeUnit);
 })
 

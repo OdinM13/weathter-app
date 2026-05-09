@@ -10,9 +10,14 @@ const filteredData = filterRawData(rawWeatherData, 'metric');
 renderWeatherData(filteredData);
 
 document.addEventListener('changeLocation', async (event) => {
-  console.log("Suche nach:", event.detail.location);
-  const newWeatherData = await getWeatherData(event.detail.location, 'metric');
-  const newFilteredData = filterRawData(newWeatherData, 'metric');
+  const newWeatherData = await getWeatherData(event.detail.location, event.detail.unit);
+  const newFilteredData = filterRawData(newWeatherData, event.detail.unit);
+  renderWeatherData(newFilteredData);
+})
+
+document.addEventListener('changeUnit', async (event) => {
+  const newWeatherData = await getWeatherData(event.detail.location, event.detail.unit);
+  const newFilteredData = filterRawData(newWeatherData, event.detail.unit);
   renderWeatherData(newFilteredData);
 })
 
