@@ -20,6 +20,7 @@ function renderWeatherData(filteredData) {
   const valueTempHigh = document.querySelector(".high-value");
   const valueTempLow = document.querySelector(".low-value");
 
+  resetIcons();
   const activeIcon = document.getElementById(filteredData.icon);
   if (activeIcon) {
     activeIcon.style.display = 'block';
@@ -49,6 +50,13 @@ function renderContent(selector, value) {
   selector.innerHTML = '';
   const content = document.createTextNode(value);
   selector.appendChild(content);
+}
+
+function resetIcons() {
+  const allIcons = document.querySelectorAll('.weather-icon');
+  for (const icon of allIcons) {
+    icon.style.display = 'none';
+  }
 }
 
 const unitToggle = document.querySelector('.unit-toggle');
