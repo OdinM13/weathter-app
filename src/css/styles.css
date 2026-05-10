@@ -146,6 +146,10 @@ main {
   display: none;
 }
 
+.unit-temp {
+  display: none;
+}
+
 footer {
   grid-area: footer;
   display: flex;

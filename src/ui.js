@@ -76,12 +76,17 @@ searchBar.addEventListener('keydown', (e) => {
 
 unitToggle.addEventListener('click', (e) => {
   const textLocation = document.querySelector(".location-name");
+  const unitValue = unitToggle.querySelector('input:checked').value; 
   const changeUnit = new CustomEvent('changeUnit', {
     detail: {
       location: textLocation.textContent, 
-      unit: unitToggle.querySelector('input:checked').value
+      unit: unitValue
     }
   })
+  const unitText = document.querySelector('.${unitValue}');
+  if (unitText) {
+    unitText.style.display = 'block';
+  }
   document.dispatchEvent(changeUnit);
 })
 
