@@ -83,19 +83,11 @@ unitToggle.addEventListener('click', (e) => {
       unit: unitValue
     }
   })
-  const tempUnit = translateTempUnit(unitValue);
-  resetElement('unit-temp');
-  const unitText = document.querySelector(`.${tempUnit}`);
-  if (unitText) {
-    unitText.style.display = 'block';
+  resetElement('unit-value');
+  const unitTextAll = document.querySelectorAll(`.${unitValue}`);
+  console.log(unitTextAll);
+  for (const element of unitTextAll) {
+    element.style.display = 'block';
   }
   document.dispatchEvent(changeUnit);
 })
-
-function translateTempUnit(value) {
-  if (value === 'metric') {
-    return 'celsius';
-  } else {
-    return 'fahrenheit';
-  }
-}

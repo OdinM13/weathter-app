@@ -20,6 +20,3 @@ async function getWeatherData(location, unit) {
     console.error(error);
   }
 }
-
-// https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/cologne?unitGroup=us&key=GYDDTGCC3FSYAQBYY6UKFKHJX&contentType=json
-// https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/cologne?unitGroup=metric&key=GYDDTGCC3FSYAQBYY6UKFKHJX&contentType=json
