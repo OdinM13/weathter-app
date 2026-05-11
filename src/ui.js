@@ -11,7 +11,7 @@ function renderWeatherData(filteredData) {
   const textRain = document.querySelector(".bottom-row-text.rain");
   const textWindDir = document.querySelector(".wind-direction-text");
   const textWind = document.querySelector(".bottom-row-text.wind");
-  const textTemp = document.querySelector(".middle-row-sub-text");
+  const textTemp = document.querySelector(".bottom-row-text.temp");
 
   const textLocation = document.querySelector(".location-name");
   const date = document.querySelector(".date");
@@ -44,6 +44,7 @@ function renderWeatherData(filteredData) {
   renderContent(valueTempHigh, filteredData.maxtemp);
   renderContent(valueTempLow, filteredData.mintemp);
 
+  renderHumidityBar(filteredData.humidity);
 }
 
 function renderContent(selector, value) {
@@ -91,3 +92,8 @@ unitToggle.addEventListener('click', (e) => {
   }
   document.dispatchEvent(changeUnit);
 })
+
+function renderHumidityBar(value) {
+  const getBar = document.querySelector('.foreground');
+  getBar.style.width = `${value}%`;
+}
