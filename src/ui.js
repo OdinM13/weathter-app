@@ -20,7 +20,7 @@ function renderWeatherData(filteredData) {
   const valueTempHigh = document.querySelector(".high-value");
   const valueTempLow = document.querySelector(".low-value");
 
-  resetIcons();
+  resetElement('weather-icon');
   const activeIcon = document.getElementById(filteredData.icon);
   if (activeIcon) {
     activeIcon.style.display = 'block';
@@ -52,10 +52,10 @@ function renderContent(selector, value) {
   selector.appendChild(content);
 }
 
-function resetIcons() {
-  const allIcons = document.querySelectorAll('.weather-icon');
-  for (const icon of allIcons) {
-    icon.style.display = 'none';
+function resetElement(selector) {
+  const allElements = document.querySelectorAll(`.${selector}`);
+  for (const element of allElements) {
+    element.style.display = 'none';
   }
 }
 
@@ -83,10 +83,19 @@ unitToggle.addEventListener('click', (e) => {
       unit: unitValue
     }
   })
-  const unitText = document.querySelector('.${unitValue}');
+  const tempUnit = translateTempUnit(unitValue);
+  resetElement('unit-temp');
+  const unitText = document.querySelector(`.${tempUnit}`);
   if (unitText) {
     unitText.style.display = 'block';
   }
   document.dispatchEvent(changeUnit);
 })
 
+function translateTempUnit(value) {
+  if (value === 'metric') {
+    return 'celsius';
+  } else {
+    return 'fahrenheit';
+  }
+}

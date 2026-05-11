@@ -146,7 +146,7 @@ main {
   display: none;
 }
 
-.unit-temp {
+.unit-temp.fahrenheit {
   display: none;
 }
 
