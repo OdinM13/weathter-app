@@ -75,7 +75,7 @@ searchBar.addEventListener('keydown', (e) => {
   }
 })
 
-unitToggle.addEventListener('click', (e) => {
+unitToggle.addEventListener('change', (e) => {
   const textLocation = document.querySelector(".location-name");
   const unitValue = unitToggle.querySelector('input:checked').value; 
   const changeUnit = new CustomEvent('changeUnit', {
