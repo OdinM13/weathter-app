@@ -1,7 +1,7 @@
 {
-  "name": "to-do-list",
+  "name": "weather-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "A dynamic weather application built with vanilla JavaScript and Webpack.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OdinM13/to-do-list.git"
+    "url": "git+https://github.com/OdinM13/weather-app.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["weather", "javascript", "webpack"],
+  "author": "OdinM13",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/OdinM13/to-do-list/issues"
+    "url": "https://github.com/OdinM13/weather-app/issues"
   },
-  "homepage": "https://github.com/OdinM13/to-do-list#readme",
+  "homepage": "https://github.com/OdinM13/weather-app#readme",
   "devDependencies": {
     "@eslint/js": "^9.39.4",
     "css-loader": "^7.1.4",
